@@ -41,6 +41,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     }
 
+    delete MainCore;
+
     return (int)msg.wParam;
 }
 
@@ -69,7 +71,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance; // Store instance handle in our global variable
 
-    RECT MainRect = { 0, 0, 1600, 900 };
+    RECT MainRect = { 0, 0, 1920, 1080 };
     AdjustWindowRect(&MainRect, WS_OVERLAPPEDWINDOW, false);
     int Width = MainRect.right - MainRect.left;
     int Height = MainRect.bottom - MainRect.top;
