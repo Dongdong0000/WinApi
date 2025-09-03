@@ -25,24 +25,28 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     Core* MainCore = new Core();
+    
     MainCore->Init(Ghwnd);
     MSG msg;
     while (true)
     {
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
-            if (msg.message == WM_QUIT) return 0;
-
+        
+            if (msg.message == WM_QUIT) {
+                delete MainCore;
+                _CrtDumpMemoryLeaks();
+                return 0;
+            }
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
         MainCore->Update();
         MainCore->Render();
-
     }
 
     delete MainCore;
-
+    _CrtDumpMemoryLeaks();
     return (int)msg.wParam;
 }
 

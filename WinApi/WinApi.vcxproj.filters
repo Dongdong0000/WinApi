@@ -18,6 +18,12 @@
     <Filter Include="Source Files\01. Manager">
       <UniqueIdentifier>{122877f1-c857-4f26-b3ac-b788c56fbf02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\03. Object">
+      <UniqueIdentifier>{ed3f8203-7b27-4d1d-92f9-70ac6f8b1f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\02. Scene">
+      <UniqueIdentifier>{e466d437-483c-434b-8936-58afc50cae0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -46,6 +52,18 @@
     </ClInclude>
     <ClInclude Include="TimeManager.h">
       <Filter>Source Files\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLobby.h">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneDev.h">
+      <Filter>Source Files\02. Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +94,18 @@
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>Source Files\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLobby.cpp">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneDev.cpp">
+      <Filter>Source Files\02. Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

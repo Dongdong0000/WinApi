@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "TimeManager.h"
 #include "InputManager.h"
+#include "SceneManager.h"
 
 Core::Core()
 {
@@ -9,12 +10,14 @@ Core::Core()
 
 Core::~Core()
 {
+
 }
 
 void Core::Init(HWND Hwnd)
 {
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(InputManager)->Init(Hwnd);
+	GET_SINGLE(SceneManager)->Init();
 
 	_hwnd = Hwnd;
 	_hdc = GetDC(_hwnd);
@@ -25,6 +28,7 @@ void Core::Update()
 {
 	GET_SINGLE(TimeManager)->Update();
 	GET_SINGLE(InputManager)->Update();
+	GET_SINGLE(SceneManager)->Update();
 }
 
 void Core::Render()
@@ -43,6 +47,6 @@ void Core::Render()
 		TextOut(_hdc, 1720, 10, str.c_str(), str.size());
 	}
 
+	GET_SINGLE(SceneManager)->Render(_hdc);
 
-	Rectangle(_hdc, 100, 100, 300, 300);
 }
