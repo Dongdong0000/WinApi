@@ -1,18 +1,15 @@
 #pragma once
-#include "Scene.h"
-class SceneDev :
-    public Scene
+#include "Object.h"
+
+class Player : public Object
 {
 public:
-
-	SceneDev();
-	virtual ~SceneDev() override;
+	Player();
+	virtual ~Player();
 
 	virtual void Init() override;
 	virtual void Update() override;
 	virtual void Render(HDC Hdc) override;
-
-protected:
 
 };
 

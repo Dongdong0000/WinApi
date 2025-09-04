@@ -2,6 +2,7 @@
 #include "SceneDev.h"
 #include "TimeManager.h"
 #include "InputManager.h"
+#include "Player.h"
 
 SceneDev::SceneDev()
 {
@@ -10,42 +11,35 @@ SceneDev::SceneDev()
 
 SceneDev::~SceneDev()
 {
-
+	for (auto it = _objectList.begin(); it < _objectList.end(); )
+	{
+		_objectList.erase(it);
+		it++;
+	}
 }
 
 void SceneDev::Init()
 {
+	_objectList.push_back({ (int32)OBJECTTYPE::PLAYER, new Player() });
 
+	for (auto it = _objectList.begin(); it < _objectList.end(); it++)
+	{
+		it->second->Init();
+	}
 }
 
 void SceneDev::Update()
 {
-	float delta = GET_SINGLE(TimeManager)->GetDeltaTime();
-
-	if (GET_SINGLE(InputManager)->GetButton(KeyType::A))
+	for (auto it = _objectList.begin(); it < _objectList.end(); it++)
 	{
-		_playerPos._x -= delta * _playerSpeed;
-	}
-	if (GET_SINGLE(InputManager)->GetButton(KeyType::W))
-	{
-		_playerPos._y -= delta * _playerSpeed;
-	}
-	if (GET_SINGLE(InputManager)->GetButton(KeyType::D))
-	{
-		_playerPos._x += delta * _playerSpeed;
-	}
-	if (GET_SINGLE(InputManager)->GetButton(KeyType::S))
-	{
-		_playerPos._y += delta * _playerSpeed;
+		it->second->Update();
 	}
 }
 
 void SceneDev::Render(HDC Hdc)
 {
-	float playerLeft = _playerPos._x - (_playerSize._x / 2);
-	float playerTop = _playerPos._y - (_playerSize._y / 2);
-	float playerRight = _playerPos._x + (_playerSize._x / 2);
-	float playerBottom = _playerPos._y + (_playerSize._y / 2);
-
-	Rectangle(Hdc, (int)playerLeft, (int)playerTop, (int)playerRight, (int)playerBottom);
+	for (auto it = _objectList.begin(); it < _objectList.end(); it++)
+	{
+		it->second->Render(Hdc);
+	}
 }

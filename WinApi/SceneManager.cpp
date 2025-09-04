@@ -4,12 +4,12 @@
 #include "SceneDev.h"
 #include "SceneLobby.h"
 
-
-
 void SceneManager::Init()
 {
 	_currScene = { new SceneDev(), SCENE::DEV };
 	_sceneList[SCENE::DEV] = _currScene.first;
+
+	_currScene.first->Init();
 }
 
 void SceneManager::Update()

@@ -65,6 +65,10 @@
     <ClInclude Include="SceneDev.h">
       <Filter>Source Files\02. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source Files\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinApi.rc">
@@ -106,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="SceneDev.cpp">
       <Filter>Source Files\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
