@@ -2,6 +2,9 @@
 #include "Player.h"
 #include "InputManager.h"
 #include "TimeManager.h"
+#include "Bullet.h"
+#include "Scene.h"
+#include "SceneManager.h"
 
 Player::Player()
 {
@@ -10,6 +13,7 @@ Player::Player()
 
 Player::~Player()
 {
+
 }
 
 void Player::Init()
@@ -44,6 +48,10 @@ void Player::Update()
 	{
 		_pos._y += delta * _speed;
 	}
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::SpaceBar))
+	{
+		CreateBullet();
+	}
 }
 
 void Player::Render(HDC Hdc)
@@ -56,4 +64,14 @@ void Player::Render(HDC Hdc)
 	float playerBottom = _pos._y + (_size._y / 2);
 
 	Rectangle(Hdc, (int)playerLeft, (int)playerTop, (int)playerRight, (int)playerBottom);
+}
+
+void Player::CreateBullet()
+{
+	Bullet* newBullet = new Bullet();
+
+	newBullet->SetPos({ _pos._x, _pos._y });
+
+	GET_SINGLE(SceneManager)->GetCurrScene()->PushObject({ static_cast<int32>(OBJECTTYPE::PROJECTILE), newBullet } );
+	
 }

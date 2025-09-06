@@ -24,6 +24,9 @@
     <Filter Include="Source Files\02. Scene">
       <UniqueIdentifier>{e466d437-483c-434b-8936-58afc50cae0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\04. Resource">
+      <UniqueIdentifier>{16235947-2aca-450b-8f0f-5c39e08e166c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -68,7 +71,18 @@
     <ClInclude Include="Object.h">
       <Filter>Source Files\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\03. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="EditScene.h">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files\01. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinApi.rc">
@@ -115,7 +129,16 @@
       <Filter>Source Files\03. Object</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\03. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="EditScene.cpp">
+      <Filter>Source Files\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files\01. Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

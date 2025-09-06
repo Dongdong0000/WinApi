@@ -25,3 +25,7 @@ void Scene::Render(HDC Hdc)
 {
 
 }
+
+void Scene::PushObject(pair<int32, class Object*> Obj)
+{ 
+}

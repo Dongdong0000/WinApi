@@ -1,7 +1,5 @@
 #include "pch.h"
 #include "SceneDev.h"
-#include "TimeManager.h"
-#include "InputManager.h"
 #include "Player.h"
 
 SceneDev::SceneDev()
@@ -11,10 +9,10 @@ SceneDev::SceneDev()
 
 SceneDev::~SceneDev()
 {
-	for (auto it = _objectList.begin(); it < _objectList.end(); )
+	for (int i = 0; i < _objectList.size(); i++)
 	{
-		_objectList.erase(it);
-		it++;
+		delete _objectList[i].second;
+		_objectList.erase(_objectList.begin() + i);
 	}
 }
 
@@ -30,7 +28,8 @@ void SceneDev::Init()
 
 void SceneDev::Update()
 {
-	for (auto it = _objectList.begin(); it < _objectList.end(); it++)
+	vector<pair<int32, class Object*>> temp = _objectList;
+	for (auto it = temp.begin(); it < temp.end(); it++)
 	{
 		it->second->Update();
 	}
@@ -42,4 +41,10 @@ void SceneDev::Render(HDC Hdc)
 	{
 		it->second->Render(Hdc);
 	}
+}
+
+void SceneDev::PushObject(pair<int32, class Object*> Obj)
+{
+	Scene::PushObject(Obj);
+	_objectList.push_back({ Obj.first, Obj.second });
 }

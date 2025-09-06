@@ -1,13 +1,24 @@
 #include "pch.h"
 #include "SceneManager.h"
+#include "EditScene.h"
 #include "Scene.h"
 #include "SceneDev.h"
 #include "SceneLobby.h"
 
+SceneManager::~SceneManager()
+{
+	for_each(_sceneList.begin(), _sceneList.end(), [=](pair<int32, class Scene*> scene) { delete scene.second; });
+
+	for (int i = 0; i < _sceneList.size(); i++)
+	{
+		_sceneList.erase(_sceneList.begin()->first);
+	}
+}
+
 void SceneManager::Init()
 {
-	_currScene = { new SceneDev(), SCENE::DEV };
-	_sceneList[SCENE::DEV] = _currScene.first;
+	_currScene = { new EditScene(), SCENE::EDIT };
+	_sceneList[SCENE::EDIT] = _currScene.first;
 
 	_currScene.first->Init();
 }

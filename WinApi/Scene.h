@@ -8,6 +8,7 @@ public:
 	virtual void Init() abstract;
 	virtual void Update() abstract;
 	virtual void Render(HDC Hdc) abstract;
+	virtual void PushObject(pair<int32, class Object*> Obj) abstract;
 
 protected:
 	// 0 : None, 1 : Player, 2 : Monster, 3 : Projectile
