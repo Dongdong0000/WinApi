@@ -5,7 +5,7 @@ class Bullet :
 {
 public:
 	Bullet();
-	virtual ~Bullet();
+	virtual ~Bullet() override;
 
 	virtual void Init() override;
 	virtual void Update() override;

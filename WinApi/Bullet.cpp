@@ -11,7 +11,7 @@ Bullet::Bullet()
 
 Bullet::~Bullet()
 {
-	delete this;
+	
 }
 
 void Bullet::Init()

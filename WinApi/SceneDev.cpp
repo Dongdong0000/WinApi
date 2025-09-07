@@ -9,10 +9,10 @@ SceneDev::SceneDev()
 
 SceneDev::~SceneDev()
 {
-	for (int i = 0; i < _objectList.size(); i++)
+	for (auto& object : _objectList)
 	{
-		delete _objectList[i].second;
-		_objectList.erase(_objectList.begin() + i);
+		delete object.second;
+		object.second = nullptr;
 	}
 }
 

@@ -3,6 +3,7 @@
 #include "TimeManager.h"
 #include "InputManager.h"
 #include "SceneManager.h"
+#include "ResourceManager.h"
 
 Core::Core()
 {
@@ -18,6 +19,7 @@ void Core::Init(HWND Hwnd)
 	GET_SINGLE(TimeManager)->Init();
 	GET_SINGLE(InputManager)->Init(Hwnd);
 	GET_SINGLE(SceneManager)->Init();
+	GET_SINGLE(ResourceManager)->Init();
 
 	_hwnd = Hwnd;
 	_hdc = GetDC(_hwnd);

@@ -74,14 +74,20 @@
     <ClInclude Include="Player.h">
       <Filter>Source Files\03. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Source Files\02. Scene</Filter>
-    </ClInclude>
     <ClInclude Include="EditScene.h">
       <Filter>Source Files\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Source Files\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CResource.h">
+      <Filter>Source Files\04. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="LineMesh.h">
+      <Filter>Source Files\04. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\03. Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -131,14 +137,20 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\03. Object</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files\02. Scene</Filter>
-    </ClCompile>
     <ClCompile Include="EditScene.cpp">
       <Filter>Source Files\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CResource.cpp">
+      <Filter>Source Files\04. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="LineMesh.cpp">
+      <Filter>Source Files\04. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\03. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,8 +17,8 @@ SceneManager::~SceneManager()
 
 void SceneManager::Init()
 {
-	_currScene = { new EditScene(), SCENE::EDIT };
-	_sceneList[SCENE::EDIT] = _currScene.first;
+	_currScene = { new SceneDev(), SCENE::DEV };
+	_sceneList[SCENE::DEV] = _currScene.first;
 
 	_currScene.first->Init();
 }

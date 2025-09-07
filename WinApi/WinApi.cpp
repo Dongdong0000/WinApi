@@ -32,7 +32,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
-        
             if (msg.message == WM_QUIT) {
                 delete MainCore;
                 _CrtDumpMemoryLeaks();

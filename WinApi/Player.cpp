@@ -3,6 +3,8 @@
 #include "InputManager.h"
 #include "TimeManager.h"
 #include "Bullet.h"
+#include "LineMesh.h"
+#include "ResourceManager.h"
 #include "Scene.h"
 #include "SceneManager.h"
 
@@ -48,7 +50,7 @@ void Player::Update()
 	{
 		_pos._y += delta * _speed;
 	}
-	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::SpaceBar))
+	if (GET_SINGLE(InputManager)->GetButton(KeyType::SpaceBar))
 	{
 		CreateBullet();
 	}
@@ -64,6 +66,19 @@ void Player::Render(HDC Hdc)
 	float playerBottom = _pos._y + (_size._y / 2);
 
 	Rectangle(Hdc, (int)playerLeft, (int)playerTop, (int)playerRight, (int)playerBottom);
+
+	vector<pair<POINT, POINT>> _lines = GET_SINGLE(ResourceManager)->GetLineMesh(L"Player")->GetLines();
+	for (auto line : _lines)
+	{
+		POINT pt1 = line.first;
+		POINT pt2 = line.second;
+	
+		Pos pos1 = { _pos._x + pt1.x, _pos._y + pt1.y };
+		Pos pos2 = { _pos._x + pt2.x, _pos._y + pt2.y };
+	
+		MoveToEx(Hdc, static_cast<int32>(pos1._x), static_cast<int32>(pos1._y), nullptr);
+		LineTo(Hdc, static_cast<int32>(pos2._x), static_cast<int32>(pos2._y));
+	}
 }
 
 void Player::CreateBullet()
